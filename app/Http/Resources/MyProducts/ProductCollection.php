@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Resources\MyProducts;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class ProductCollection extends ResourceCollection
+{
+    /**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            'data' => ProductResource::collection($this->collection)
+        ];
+        //return parent::toArray($request);
+    }
+}
